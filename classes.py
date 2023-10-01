@@ -10,7 +10,8 @@ class Banco:
 
     def listar_clientes(self):
         for i, cliente in enumerate(self.clientes):
-            print(f"Índice: {i + 1} | Nome: {cliente.nome} | RG: {cliente.rg}")
+            i += 1
+            print(f"Índice: {i} | Nome: {cliente.nome} | RG: {cliente.rg} | Saldo: R${cliente.conta.saldo}")
 
     def remover_cliente(self, indice):
         if 0 <= indice < len(self.clientes):
@@ -20,10 +21,10 @@ class Banco:
             print("Índice de cliente inválido.")
 
 class Cliente:
-    def __init__(self, nome, rg):
+    def __init__(self, nome=None, rg=None):
         self.nome = nome
         self.rg = rg
-        self.conta = None  
+        self.conta = None
 
     def criar_conta(self, saldo_inicial=0.0):
         self.conta = ContaBancaria(saldo_inicial)

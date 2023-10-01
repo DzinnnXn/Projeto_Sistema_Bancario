@@ -30,18 +30,19 @@ def main():
                 print("-------------------------")
                 nome = input("Digite o nome do novo cliente: ")
                 rg = input("Digite o rg do novo cliente: ")
-                cliente_novo = Cliente(nome, rg)
+                cliente_novo = Cliente(nome, rg)  # Crie o objeto Cliente com nome e rg
                 cliente_novo.criar_conta()  
-                cliente.adicionar_cliente(cliente_novo)
+                banco.adicionar_cliente(cliente_novo)
                 print("Cliente cadastrado com sucesso.")
                 pausar()
+
 
             case 2:
                 cls()
                 print("-------------------------")
                 print("     EXCLUIR CLIENTE     ")
                 print("-------------------------")
-                cliente.listar_clientes()
+                banco.listar_clientes()
                 indice = int(input("Digite o índice do cliente que deseja remover \n>>"))
                 cliente.remover_cliente(indice - 1)  
                 pausar()
@@ -51,50 +52,52 @@ def main():
                 print("-------------------------")
                 print("         DEPÓSITO        ")
                 print("-------------------------")
-                cliente.listar_clientes()
+                banco.listar_clientes()
                 indice = int(input("Digite o índice do cliente para fazer o depósito \n>>"))
-                if 0 <= indice - 1 < len(cliente.clientes):
+                if 0 <= indice - 1 < len(banco.clientes):
                     valor = float(input("Digite o valor do depósito: "))
-                    cliente.clientes[indice - 1].deposito(valor)
+                    banco.clientes[indice - 1].conta.deposito(valor)  # Acesse a conta do cliente
                 else:
                     print("Índice de cliente inválido.")
-                pausar()
+                    pausar()
 
             case 4:
                 cls()
                 print("-------------------------")
                 print("         SAQUE           ")
                 print("-------------------------")
-                cliente.listar_clientes()
+                banco.listar_clientes()
                 indice = int(input("Digite o índice do cliente para fazer o saque \n>>"))
-                if 0 <= indice - 1 < len(cliente.clientes):
+                if 0 <= indice - 1 < len(banco.clientes):
                     valor = float(input("Digite o valor do saque: "))
-                    cliente.clientes[indice - 1].saque(valor)
+                    banco.clientes[indice - 1].conta.saque(valor)  # Acesse a conta do cliente
                 else:
                     print("Índice de cliente inválido.")
-                pausar()
+                    pausar()
+
 
             case 5:
                 cls()
                 print("-------------------------")
                 print("     TRANSFERÊNCIA       ")
                 print("-------------------------")
-                cliente.listar_clientes()
+                banco.listar_clientes()
                 indice_origem = int(input("Digite o índice do cliente de origem: "))
                 indice_destino = int(input("Digite o índice do cliente de destino: "))
-                if 0 <= indice_origem - 1 < len(cliente.clientes) and 0 <= indice_destino - 1 < len(cliente.clientes):
+                if 0 <= indice_origem - 1 < len(banco.clientes) and 0 <= indice_destino - 1 < len(banco.clientes):
                     valor = float(input("Digite o valor da transferência: "))
-                    cliente.clientes[indice_origem - 1].transferencia(cliente.clientes[indice_destino - 1], valor)
+                    banco.clientes[indice_origem - 1].conta.transferencia(banco.clientes[indice_destino - 1].conta, valor)  # Acesse a conta dos clientes
                 else:
                     print("Índice de cliente inválido.")
                 pausar()
+
 
             case 6:
                 cls()
                 print("-------------------------")
                 print("   VISUALIZAR CLIENTES   ")
                 print("-------------------------")
-                cliente.listar_clientes()
+                banco.listar_clientes()
                 pausar()
 
             case 7:
