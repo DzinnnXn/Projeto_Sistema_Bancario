@@ -45,4 +45,4 @@ Este projeto é distribuído sob a licença MIT. Consulte o arquivo [LICENSE](LI
 
 ## Contato
 
-Para perguntas ou feedback, entre em contato conosco em [seu-email@example.com](mailto:andresilvr232@gmail.com).
+Para perguntas ou feedback, entre em contato conosco em [andresilvr232@gmail.com](mailto:andresilvr232@gmail.com).
