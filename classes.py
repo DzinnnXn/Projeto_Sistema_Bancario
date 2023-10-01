@@ -2,8 +2,17 @@ class Banco:
     def __init__(self, nome, cnpj, endereco):
         self.nome = nome
         self.cnpj = cnpj
-        self.endereco = endereco      
+        self.endereco = endereco
         
+    def Deposito():
+        pass
+    
+    def Saque():
+        pass
+    
+    def Transferencia():
+        pass
+    
 class Cliente:
     def __init__(self):
         self.clientes = []
