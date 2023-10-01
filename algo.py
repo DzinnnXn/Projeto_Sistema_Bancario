@@ -1,9 +1,6 @@
 import os
 from classes import *
 
-banco = Banco("Bradesco", 123456789, "Jundiaí - SP")
-cliente = Cliente()
-
 def pausar():
     os.system("pause")
 
@@ -11,6 +8,8 @@ def cls():
     os.system("cls")
 
 def main():
+    banco = Banco("Bradesco", 123456789, "Jundiaí - SP")
+    
     s = 0
     while s == 0:
         print("Bem-Vindo ao nosso Banco!!")
@@ -30,12 +29,12 @@ def main():
                 print("-------------------------")
                 nome = input("Digite o nome do novo cliente: ")
                 rg = input("Digite o rg do novo cliente: ")
-                cliente_novo = Cliente(nome, rg)  # Crie o objeto Cliente com nome e rg
-                cliente_novo.criar_conta()  
+                senha = input("Digite a senha do novo cliente: ")
+                cliente_novo = Cliente(nome, rg, senha)
+                cliente_novo.criar_conta()
                 banco.adicionar_cliente(cliente_novo)
                 print("Cliente cadastrado com sucesso.")
                 pausar()
-
 
             case 2:
                 cls()
@@ -44,7 +43,7 @@ def main():
                 print("-------------------------")
                 banco.listar_clientes()
                 indice = int(input("Digite o índice do cliente que deseja remover \n>>"))
-                cliente.remover_cliente(indice - 1)  
+                banco.remover_cliente(indice - 1)  # Ajuste para o índice começar em 1
                 pausar()
 
             case 3:
@@ -56,11 +55,11 @@ def main():
                 indice = int(input("Digite o índice do cliente para fazer o depósito \n>>"))
                 if 0 <= indice - 1 < len(banco.clientes):
                     valor = float(input("Digite o valor do depósito: "))
-                    banco.clientes[indice - 1].conta.deposito(valor)  # Acesse a conta do cliente
+                    banco.clientes[indice - 1].conta.deposito(valor)
                 else:
                     print("Índice de cliente inválido.")
-                    pausar()
-
+                pausar()
+                
             case 4:
                 cls()
                 print("-------------------------")
@@ -70,11 +69,10 @@ def main():
                 indice = int(input("Digite o índice do cliente para fazer o saque \n>>"))
                 if 0 <= indice - 1 < len(banco.clientes):
                     valor = float(input("Digite o valor do saque: "))
-                    banco.clientes[indice - 1].conta.saque(valor)  # Acesse a conta do cliente
+                    banco.clientes[indice - 1].conta.saque(valor)
                 else:
                     print("Índice de cliente inválido.")
-                    pausar()
-
+                pausar()
 
             case 5:
                 cls()
@@ -86,11 +84,10 @@ def main():
                 indice_destino = int(input("Digite o índice do cliente de destino: "))
                 if 0 <= indice_origem - 1 < len(banco.clientes) and 0 <= indice_destino - 1 < len(banco.clientes):
                     valor = float(input("Digite o valor da transferência: "))
-                    banco.clientes[indice_origem - 1].conta.transferencia(banco.clientes[indice_destino - 1].conta, valor)  # Acesse a conta dos clientes
+                    banco.clientes[indice_origem - 1].conta.transferencia(banco.clientes[indice_destino - 1].conta, valor)
                 else:
                     print("Índice de cliente inválido.")
                 pausar()
-
 
             case 6:
                 cls()
@@ -104,4 +101,5 @@ def main():
                 cls()
                 print("Saindo...")
                 pausar()
+                s = 1
                 break
