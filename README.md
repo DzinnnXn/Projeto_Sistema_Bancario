@@ -1,6 +1,6 @@
 # Sistema Bancário em Python
 
-![Logotipo do Sistema](sistema_bancario_logo.png)
+![Logotipo do Sistema]([sistema_bancario_logo.png](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Fbr%2Ficone-gratis%2Fsistema-bancario_10069014&psig=AOvVaw0MaxCH3n1YlI_Xb4xN8NkC&ust=1696206725309000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCOjIuczM04EDFQAAAAAdAAAAABAE))
 
 Este é um sistema bancário simples desenvolvido em Python que oferece as seguintes funcionalidades:
 
