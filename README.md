@@ -34,10 +34,6 @@ Este é um sistema bancário simples desenvolvido em Python que oferece as segui
 
 Este projeto requer Python 3.7 ou superior.
 
-## Contribuição
-
-...
-
 ## Licença
 
 Este projeto é distribuído sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter mais informações.
